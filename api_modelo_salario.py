@@ -18,7 +18,7 @@ class request_body(BaseModel):
 modelo_poly = joblib.load('./modelo_salario.pkl')
 
 
-@app.route('/predict')
+@app.post('/predict')
 def predict(data: request_body):
     input_features = {
         'tempo_na_empresa': data.tempo_na_empresa,
@@ -27,7 +27,7 @@ def predict(data: request_body):
 
     pred_df = pd.DataFrame(input_features, index=[1])
 
-    y_pred = modelo_poly.predict(pred_df)[0].astype(float)
+    y_pred = modelo_poly.predict(pred_df)[0].astype(float).round(2)
 
     return {'salario_em reais': y_pred.tolist()}
 
