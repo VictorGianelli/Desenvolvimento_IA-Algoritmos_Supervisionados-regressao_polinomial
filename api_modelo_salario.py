@@ -29,6 +29,6 @@ def predict(data: request_body):
 
     y_pred = modelo_poly.predict(pred_df)[0].astype(float).round(2)
 
-    return {'salario_em reais': y_pred.tolist()}
+    return {"salario_em_reais": y_pred.tolist()}
 
 # Nesta aula, vamos aprender como entregar um modelo de machine learning através de uma aplicação usando o Streamlit. Vamos criar uma API usando o FastAPI para receber os dados de entrada, carregar o modelo treinado e fazer a predição. Para isso, vamos importar as bibliotecas necessárias, criar uma instância do FastAPI, definir a classe para validação dos dados de entrada e criar a função de predição. Por fim, vamos decorar a função com o decorador do FastAPI para expor a função como uma API REST.
